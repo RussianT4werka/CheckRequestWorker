@@ -1,0 +1,36 @@
+﻿using CheckRequestWorker.Models;
+using CheckRequestWorker.ViewModels;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
+using System.Windows.Shapes;
+
+namespace CheckRequestWorker.Views
+{
+    /// <summary>
+    /// Логика взаимодействия для ListRequestPage.xaml
+    /// </summary>
+    public partial class ListRequestPage : Page
+    {
+        public ListRequestPage()
+        {
+            InitializeComponent();
+            DataContext = new ListRequestPageModel();
+        }
+
+        private void OpenModalWindow(object sender, MouseButtonEventArgs e)
+        {
+            ((ListRequestPageModel)DataContext).OpenModalWindow();
+        }
+    }
+}

@@ -16,6 +16,7 @@
 
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
             <RowDefinition Height="auto"/>
             <RowDefinition/>
             <RowDefinition Height="auto"/>
@@ -23,15 +24,23 @@
         </Grid.RowDefinitions>
         <StackPanel>
             <Label FontWeight="Bold" Content="Дата начала"/>
-            <DatePicker SelectedDate="{Binding Request.StartDate}" IsEnabled="{Binding Block}"/>
+            <Label Content="{Binding Request.StartDate}"/>
         </StackPanel>
         
         <StackPanel Grid.Column="1">
             <Label FontWeight="Bold" Content="Дата конца"/>
-            <DatePicker SelectedDate="{Binding Request.FinishDate}" IsEnabled="{Binding Block}"/>
+            <Label Content="{Binding Request.FinishDate}"/>
         </StackPanel>
 
-        <StackPanel Grid.ColumnSpan="2" Grid.Row="1">
+        <StackPanel Orientation="Horizontal" Grid.ColumnSpan="3" Grid.Row="1">
+            <DatePicker SelectedDate="{Binding Request.DateVisit}" IsEnabled="{Binding Block}"/>
+            <Label Content="Часы"/>
+            <TextBox Text="{Binding DateVisitHours}" IsEnabled="{Binding Block}"/>
+            <Label Content="Минуты"/>
+            <TextBox Text="{Binding DateVisitMinutes}" IsEnabled="{Binding Block}"/>
+        </StackPanel>
+
+        <StackPanel Grid.ColumnSpan="2" Grid.Row="2">
             <Label FontWeight="Bold" Content="Цель посещения"/>
             <Label Content="{Binding Request.TargetVisit}"/>
         </StackPanel>
@@ -41,7 +50,7 @@
             <Label Content="{Binding Request.Worker.SubDivision.Name}"/>
         </StackPanel>
 
-        <StackPanel Grid.Row="1" Grid.Column="2">
+        <StackPanel Grid.Row="2" Grid.Column="2">
 
             <Label FontWeight="Bold" Content="ФИО"/>
             <Label Content="{Binding Request.Worker.Surname}"/>
@@ -56,7 +65,7 @@
         </StackPanel>
 
 
-        <ListView Grid.Row="2" Grid.ColumnSpan="3" ItemsSource="{Binding Request.VisitorsRequests}">
+        <ListView Grid.Row="3" Grid.ColumnSpan="3" ItemsSource="{Binding Request.VisitorsRequests}">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Фамилия*" DisplayMemberBinding="{Binding Visitors.Surname}"/>
@@ -72,7 +81,7 @@
                 </GridView>
             </ListView.View>
         </ListView>
-        <Button Grid.Row="3" Grid.ColumnSpan="3" Content="Отклонить" Command="{Binding Refusal}" IsEnabled="{Binding BlockRefusal}"/>
-        <Button Grid.Row="4" Grid.ColumnSpan="3" Content="Одобрить" Command="{Binding SaveEdit}" IsEnabled="{Binding Block}"/>
+        <Button Grid.Row="4" Grid.ColumnSpan="3" Content="Отклонить" Command="{Binding Refusal}" IsEnabled="{Binding BlockRefusal}"/>
+        <Button Grid.Row="5" Grid.ColumnSpan="3" Content="Одобрить" Command="{Binding SaveEdit}" IsEnabled="{Binding Block}"/>
     </Grid>
 </Window>

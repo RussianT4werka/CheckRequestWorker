@@ -22,6 +22,8 @@ namespace CheckRequestWorker.ViewModels
         private List<Status> statuses;
         private SubDivision selectedSubDivision;
         private List<SubDivision> subDivisions;
+        
+
 
         public TypeRequest SelectedTypeRequest
         {
@@ -77,15 +79,15 @@ namespace CheckRequestWorker.ViewModels
             }
         }
 
-        public List<SubDivision> SubDivisions 
-        { 
-            get => subDivisions; 
+        public List<SubDivision> SubDivisions
+        {
+            get => subDivisions;
             set
             {
                 subDivisions = value;
                 SignalChanged();
             }
-                 
+
         }
 
         public ObservableCollection<Request> Requests
@@ -137,10 +139,10 @@ namespace CheckRequestWorker.ViewModels
                 searchRequest = searchRequest.Where(s => s.TypeRequestId == SelectedTypeRequest.Id || SelectedTypeRequest.Id == 0);
             if (SelectedStatus != null)
                 searchRequest = searchRequest.Where(s => s.StatusId == SelectedStatus.Id || SelectedStatus.Id == 0);
-            if(SelectedSubDivision != null)
+            if (SelectedSubDivision != null)
                 searchRequest = searchRequest.Where(s => s.Worker.SubDivisionId == SelectedSubDivision.Id || SelectedSubDivision.Id == 0);
             Requests = new ObservableCollection<Request>(searchRequest.ToList());
-            
+
         }
 
         private static IQueryable<Request> GetRequests()

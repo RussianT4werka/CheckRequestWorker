@@ -67,6 +67,8 @@ namespace CheckRequestWorker.DB
             {
                 entity.ToTable("Request");
 
+                entity.Property(e => e.DateVisit).HasColumnType("datetime");
+
                 entity.Property(e => e.FinishDate).HasColumnType("date");
 
                 entity.Property(e => e.StartDate).HasColumnType("date");

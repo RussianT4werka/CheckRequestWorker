@@ -11,8 +11,8 @@
     <Grid>
         <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
         <Label Content="Вход" HorizontalAlignment="Center" FontSize="25"/>
-            <Label Content="Код работника" HorizontalAlignment="Center"/>
-        <TextBox HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" MinWidth="150" MinHeight="35" FontSize="25" Text="{Binding Code}"/>
+            <Label Content="Код сотрудника общего отдела" HorizontalAlignment="Center"/>
+        <TextBox TextWrapping="Wrap" VerticalAlignment="Top" FontSize="25" Text="{Binding Code}"/>
             <Button Content="Войти" Command="{Binding SignIn}"/>
         </StackPanel>
     </Grid>

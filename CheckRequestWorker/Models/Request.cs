@@ -19,6 +19,7 @@ namespace CheckRequestWorker.Models
         public int StatusId { get; set; }
         public string? Cause { get; set; }
         public int UsersId { get; set; }
+        public DateTime? DateVisit { get; set; }
 
         public virtual Status Status { get; set; } = null!;
         public virtual TypeRequest TypeRequest { get; set; } = null!;
